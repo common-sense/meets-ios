@@ -26,9 +26,10 @@
 @property int level;
 @property (nonatomic, strong) NSMutableArray *children;
 
--(NSString*)toString:(BOOL)addNameWrap;
--(id)initWithArray:(NSArray*)array;
--(void)encodeWithCoder:(NSCoder *)encoder;
--(id)copyWithZone:(NSZone *)zone;
--(id)initWithCoder:(NSCoder *)decoder;
+- (NSString *)toString:(BOOL)addNameWrap;
+- (id)initWithArray:(NSArray *)array;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 @end

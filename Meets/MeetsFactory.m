@@ -8,6 +8,7 @@
 
 #import "MeetsFactory.h"
 
+
 @implementation MeetsFactory
 
 
@@ -19,6 +20,7 @@ static MeetsFactory *shared = nil;
 {
     return shared;
 }
+
 
 + (void)initWithFactory:(MeetsFactory *)factory
 {
@@ -33,6 +35,7 @@ static MeetsFactory *shared = nil;
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
 
+
 - (MeetsCollection *)makeProductCollection
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
@@ -46,10 +49,12 @@ static MeetsFactory *shared = nil;
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
 
+
 - (MeetsCategory *)makeCategoryWithDictionary:(NSDictionary *)theDictionary
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
+
 
 #pragma mark - Carts
 
@@ -58,10 +63,12 @@ static MeetsFactory *shared = nil;
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
 
+
 - (MeetsCart *)makeCartWithId:(NSNumber *)theId
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
+
 
 - (MeetsCartItem *)makeCartItemWithProduct:(MeetsProduct *)product
 {
@@ -75,6 +82,7 @@ static MeetsFactory *shared = nil;
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
+
 
 - (MeetsCustomer *)makeCustomerWithId:(NSNumber *)theId
 {
@@ -94,6 +102,7 @@ static MeetsFactory *shared = nil;
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
+
 
 - (MeetsAddress *)makeAddressWithId:(NSNumber *)theId
 {

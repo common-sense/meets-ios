@@ -11,8 +11,7 @@
 
 @implementation XPathQuery
 
-
--(NSDictionary *)newDictionaryForNode:(xmlNodePtr) currentNode andParentResult:(NSMutableDictionary *)parentResult
+- (NSDictionary *)newDictionaryForNode:(xmlNodePtr)currentNode andParentResult:(NSMutableDictionary *)parentResult
 {
 	NSMutableDictionary *resultForNode = [[NSMutableDictionary alloc] init];
 	
@@ -99,7 +98,8 @@
 	return resultForNode;
 }
 
--(NSArray *)newXPathQueryArrayResult:(xmlDocPtr)doc andQuery:(NSString *)query
+
+- (NSArray *)newXPathQueryArrayResult:(xmlDocPtr)doc andQuery:(NSString *)query
 {
 	xmlXPathContextPtr xpathCtx;
 	xmlXPathObjectPtr xpathObj;
@@ -107,7 +107,7 @@
 	/* Create xpath evaluation context */
   	xpathCtx = xmlXPathNewContext(doc);
 	
-	if(xpathCtx == NULL)
+	if (xpathCtx == NULL)
     {
 		//debug(@"Unable to create XPath context.", nil);
 		return nil;
@@ -121,7 +121,8 @@
 	
 	/* Evaluate xpath expression */
 	xpathObj = xmlXPathEvalExpression((xmlChar *)[query cStringUsingEncoding:NSUTF8StringEncoding], xpathCtx);
-	if(xpathObj == NULL) {
+	if (xpathObj == NULL)
+    {
 		return nil;
 	}
 	
@@ -148,7 +149,8 @@
 	return resultNodes;
 }
 
--(NSArray *)newXMLXPathQueryResult:(NSData *)document andQuery:(NSString *)query
+
+- (NSArray *)newXMLXPathQueryResult:(NSData *)document andQuery:(NSString *)query
 {
 	xmlDocPtr doc = xmlReadMemory([document bytes], [document length], "", NULL, XML_PARSE_RECOVER);
 	

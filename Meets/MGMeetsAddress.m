@@ -8,6 +8,7 @@
 
 #import "MGMeetsAddress.h"
 
+
 @implementation MGMeetsAddress
 
 @end

@@ -20,9 +20,10 @@
 @property (nonatomic, copy) NSString *key;
 @property (nonatomic, strong) NSMutableArray *value;
 
--(NSString*)toString:(BOOL)addNameWrap;
--(id)initWithArray:(NSArray*)array;
--(void)encodeWithCoder:(NSCoder *)encoder;
--(id)copyWithZone:(NSZone *)zone;
--(id)initWithCoder:(NSCoder *)decoder;
+- (NSString *)toString:(BOOL)addNameWrap;
+- (id)initWithArray:(NSArray *)array;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 @end

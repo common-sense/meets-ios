@@ -16,34 +16,42 @@
 
 @implementation catalogCategoryEntityNoChildren
 
--(id)initWithArray:(NSArray*)array {
+- (id)initWithArray:(NSArray *)array
+{
     self = [super init];
-    if (self) {
+    if (self)
+    {
         @try {
             for (int i0 = 0; i0 < [array count]; i0++)
             {
-                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"category_id"]==NSOrderedSame)){
+                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"category_id"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setCategory_id:[nodeContentValue intValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"parent_id"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"parent_id"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setParent_id:[nodeContentValue intValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"name"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"name"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setName:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_active"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_active"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setIs_active:[nodeContentValue intValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"position"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"position"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setPosition:[nodeContentValue intValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"level"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"level"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setLevel:[nodeContentValue intValue]];
                 }
@@ -54,13 +62,17 @@
     }
     return self;
 }
--(NSString*)toString:(BOOL)addNameWrap {
+
+
+- (NSString *)toString:(BOOL)addNameWrap
+{
     NSMutableString *nsString = [NSMutableString string];
     if (addNameWrap == YES)
         [nsString appendString:@"<catalogCategoryEntityNoChildren>" ];
     [nsString appendFormat:@"<category_id>%d</category_id>" , [self category_id]];
     [nsString appendFormat:@"<parent_id>%d</parent_id>" , [self parent_id]];
-    if (self.name != nil) {
+    if (self.name != nil)
+    {
         [nsString appendFormat:@"<name>%@</name>" , [self name]];
     }
     [nsString appendFormat:@"<is_active>%d</is_active>" , [self is_active]];
@@ -70,10 +82,15 @@
         [nsString appendString:@"</catalogCategoryEntityNoChildren>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
--(id)initWithCoder:(NSCoder *)decoder{
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
     self = [super init];
-    if (self){
+    if (self)
+    {
         self.category_id = [decoder decodeInt32ForKey:@"category_id"];
         self.parent_id = [decoder decodeInt32ForKey:@"parent_id"];
         self.name = [decoder decodeObjectForKey:@"name"];
@@ -83,7 +100,10 @@
     }
     return self;
 }
--(void)encodeWithCoder:(NSCoder *)encoder{
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
     [encoder encodeInt32:self.category_id forKey:@"category_id"];
     [encoder encodeInt32:self.parent_id forKey:@"parent_id"];
     [encoder encodeObject:self.name forKey:@"name"];
@@ -91,8 +111,11 @@
     [encoder encodeInt32:self.position forKey:@"position"];
     [encoder encodeInt32:self.level forKey:@"level"];
 }
--(id)copyWithZone:(NSZone *)zone {
-    catalogCategoryEntityNoChildren *finalCopy = [[[self class] allocWithZone: zone] init];
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    catalogCategoryEntityNoChildren *finalCopy = [[[self class] allocWithZone:zone] init];
     
     finalCopy.category_id = self.category_id;
     

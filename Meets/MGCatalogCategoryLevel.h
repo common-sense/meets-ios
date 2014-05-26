@@ -8,6 +8,7 @@
 
 #import "MGCatalogCategory.h"
 
+
 @interface MGCatalogCategoryLevel : MGCatalogCategory
 
 @end

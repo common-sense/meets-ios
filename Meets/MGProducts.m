@@ -8,6 +8,7 @@
 
 #import "MGProducts.h"
 
+
 @implementation MGProducts
 
 - (id)getModelFromResponse:(id)responseObject
@@ -24,6 +25,5 @@
     
     return [self mapResponseToModelObjectWithResponse:responseObject];
 }
-
 
 @end

@@ -8,8 +8,8 @@
 
 #import "MeetsProduct.h"
 
-@implementation MeetsProduct
 
+@implementation MeetsProduct
 
 - (void)fetchAssociatedProductsWithCompletion:(MeetsCompletion)completion
 {
@@ -29,6 +29,5 @@
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
-
 
 @end

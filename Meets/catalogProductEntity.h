@@ -25,9 +25,10 @@
 @property (nonatomic, strong) NSMutableArray *category_ids;
 @property (nonatomic, strong) NSMutableArray *website_ids;
 
--(NSString*)toString:(BOOL)addNameWrap;
--(id)initWithArray:(NSArray*)array;
--(void)encodeWithCoder:(NSCoder *)encoder;
--(id)copyWithZone:(NSZone *)zone;
--(id)initWithCoder:(NSCoder *)decoder;
+- (NSString *)toString:(BOOL)addNameWrap;
+- (id)initWithArray:(NSArray *)array;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 @end

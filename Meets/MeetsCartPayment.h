@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsCartPayment : MeetsModel
 
 @property (nonatomic, strong) NSString *title;

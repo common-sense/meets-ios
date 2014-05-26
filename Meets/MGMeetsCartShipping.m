@@ -8,7 +8,7 @@
 
 #import "MGMeetsCartShipping.h"
 
-@implementation MGMeetsCartShipping
 
+@implementation MGMeetsCartShipping
 
 @end

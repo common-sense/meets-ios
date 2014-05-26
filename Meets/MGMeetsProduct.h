@@ -8,6 +8,7 @@
 
 #import "MeetsProduct.h"
 
+
 @interface MGMeetsProduct : MeetsProduct
 
 @end

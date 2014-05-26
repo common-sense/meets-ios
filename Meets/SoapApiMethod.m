@@ -9,8 +9,8 @@
 #import "SoapApiMethod.h"
 #import "MGLogin.h"
 
-@implementation SoapApiMethod
 
+@implementation SoapApiMethod
 
 - (void)runWithParams:(NSDictionary *)paramsDictionary
               filters:(filters *)filters
@@ -153,18 +153,20 @@
     NSString *xmldata = [xml stringByReplacingOccurrencesOfString:@"xmlns=\"urn:Magento\"" withString:@""];
     NSData *data = [xmldata dataUsingEncoding:NSUTF8StringEncoding];
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
-    NSString * query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
+    NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
-    NSString* result = nil;
-    if([arrayOfWSData count] > 0 )
+    NSString *result = nil;
+    if ([arrayOfWSData count] > 0 )
     {
         NSString *nodeContentValue = [[NSString alloc] initWithString:[[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeContent"]];
-        if (nodeContentValue !=nil){
+        if (nodeContentValue !=nil)
+        {
             result = [[NSString alloc] initWithString:nodeContentValue];
         }
     }
     return result;
 }
+
 
 - (id)getModelFromResponse:(id)responseObject
 {

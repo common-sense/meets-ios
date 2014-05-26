@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsCartItem : NSObject
 
 @property (nonatomic, strong) NSNumber *productId;
@@ -19,6 +20,5 @@
 @property (nonatomic, strong) MeetsProduct *relatedProduct;
 
 - (instancetype)initWithProduct:(MGMeetsProduct *)aProduct;
-
 
 @end

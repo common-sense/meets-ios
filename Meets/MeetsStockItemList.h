@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsStockItemList : MeetsModel
 
 @property (nonatomic, strong) NSArray *arrayOfProductIds;

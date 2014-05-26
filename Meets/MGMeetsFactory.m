@@ -8,7 +8,9 @@
 
 #import "MGMeetsFactory.h"
 
+
 @implementation MGMeetsFactory
+
 
 #pragma mark - Products
 
@@ -16,6 +18,7 @@
 {
     return [[MGMeetsProduct alloc] initWithId:theId];
 }
+
 
 - (MeetsCollection *)makeProductCollection
 {
@@ -30,6 +33,7 @@
     return [[MGMeetsCategory alloc] initWithId:theId];
 }
 
+
 - (MeetsCategory *)makeCategoryWithDictionary:(NSDictionary *)theDictionary
 {
     MGMeetsCategory *aCategory = [[MGMeetsCategory alloc] initWithId:[theDictionary valueForKey:@"objectId"]];
@@ -41,8 +45,10 @@
     
     NSArray *childrenDictionaries = [theDictionary objectForKey:@"children"];
     NSMutableArray *childrenCategories = [[NSMutableArray alloc] initWithCapacity:9];
-    if ([childrenDictionaries count] > 0) {
-        for (NSDictionary *anotherCategory in childrenDictionaries) {
+    if ([childrenDictionaries count] > 0)
+    {
+        for (NSDictionary *anotherCategory in childrenDictionaries)
+        {
             MeetsCategory *aChildCategory = [self makeCategoryWithDictionary:anotherCategory];
             [childrenCategories addObject:aChildCategory];
         }
@@ -53,6 +59,7 @@
     return aCategory;
 }
 
+
 #pragma mark - Carts
 
 - (MeetsCart *)makeCart
@@ -60,10 +67,12 @@
     return [MGMeetsCart new];
 }
 
+
 - (MeetsCart *)makeCartWithId:(NSNumber *)theId
 {
     return [[MGMeetsCart alloc] initWithId:theId];
 }
+
 
 - (MeetsCartItem *)makeCartItemWithProduct:(MeetsProduct *)product
 {
@@ -77,6 +86,7 @@
 {
     return [MGMeetsCustomer new];
 }
+
 
 - (MeetsCustomer *)makeCustomerWithId:(NSNumber *)theId
 {
@@ -96,6 +106,7 @@
 {
     return [MGMeetsAddress new];
 }
+
 
 - (MeetsAddress *)makeAddressWithId:(NSNumber *)theId
 {
@@ -125,6 +136,5 @@
 {
     return [[MGMeetsStockItemList alloc] initWithArrayOfProductsIds:idsArray];
 }
-
 
 @end

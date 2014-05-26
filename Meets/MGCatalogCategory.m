@@ -8,6 +8,7 @@
 
 #import "MGCatalogCategory.h"
 
+
 @implementation MGCatalogCategory
 
 - (id)mapResponseToModelObjectWithResponse:(id)responseObject

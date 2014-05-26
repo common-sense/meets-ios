@@ -8,6 +8,7 @@
 
 #import "MeetsRestSessionManager.h"
 
+
 @implementation MeetsRestSessionManager
 
 static  MeetsRestSessionManager *shared = nil;
@@ -16,6 +17,7 @@ static  MeetsRestSessionManager *shared = nil;
 {
     return shared;
 }
+
 
 + (MeetsRestSessionManager *)initWithBaseUrl:(NSString *)baseUrl
                                      storeId:(NSString *)storeId
@@ -61,7 +63,8 @@ static  MeetsRestSessionManager *shared = nil;
 //        shared.securityPolicy = securityPolicy;
         /**** SSL Pinning ****/
 
-        if (serverUser && serverPassword) {
+        if (serverUser && serverPassword)
+        {
             [shared.requestSerializer setAuthorizationHeaderFieldWithUsername:shared.basicAuthUser password:shared.basicAuthPassword];
         }
     });

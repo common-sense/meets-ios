@@ -8,6 +8,7 @@
 
 #import "RestApiMethod.h"
 
+
 @interface MGProduct : RestApiMethod
 
 - (id)mapResponseToModelObjectWithResponse:(id)responseObject;

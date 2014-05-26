@@ -8,6 +8,7 @@
 
 #import "MeetsCartItem.h"
 
+
 @implementation MeetsCartItem
 
 - (instancetype)initWithProduct:(MGMeetsProduct *)aProduct

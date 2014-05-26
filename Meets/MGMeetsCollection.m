@@ -8,6 +8,7 @@
 
 #import "MGMeetsCollection.h"
 
+
 @implementation MGMeetsCollection
 
 - (void)fetchWithCompletion:(MeetsCompletion)completion
@@ -35,10 +36,10 @@
 
 - (void)fillWithModel:(id)modelObject
 {    
-    for (MeetsProduct *product in [modelObject collection]) {
+    for (MeetsProduct *product in [modelObject collection])
+    {
         [self insertModel:product]; // insertModel: avoids possible duplicates
     }
 }
-
 
 @end

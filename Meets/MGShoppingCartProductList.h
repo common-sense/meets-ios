@@ -8,7 +8,7 @@
 
 #import "SoapApiMethod.h"
 
-@interface MGShoppingCartProductList : SoapApiMethod
 
+@interface MGShoppingCartProductList : SoapApiMethod
 
 @end

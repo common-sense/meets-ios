@@ -17,15 +17,17 @@
 #import <libxml/xpathInternals.h>
 #import <Foundation/Foundation.h>
 
+
 @interface XPathQuery : NSObject
 {
     
 }
 
--(NSArray *)newXPathQueryArrayResult:(xmlDocPtr)doc andQuery:(NSString *)query;
--(NSDictionary *)newDictionaryForNode:(xmlNodePtr) currentNode andParentResult:(NSMutableDictionary *)parentResult;
+- (NSArray *)newXPathQueryArrayResult:(xmlDocPtr)doc andQuery:(NSString *)query;
+- (NSDictionary *)newDictionaryForNode:(xmlNodePtr)currentNode andParentResult:(NSMutableDictionary *)parentResult;
 
--(NSArray *)newXMLXPathQueryResult:(NSData *)document andQuery:(NSString *)query;
+- (NSArray *)newXMLXPathQueryResult:(NSData *)document andQuery:(NSString *)query;
+
 @end
 
 

@@ -16,31 +16,35 @@
 
 @implementation filters
 
--(id)initWithArray:(NSArray*)array {
+- (id)initWithArray:(NSArray *)array
+{
     self = [super init];
-    if (self) {
+    if (self)
+    {
         @try {
             for (int i0 = 0; i0 < [array count]; i0++)
             {
-                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"filter"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"filter"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSArray* arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
-                        associativeEntity* item = [[associativeEntity alloc] initWithArray:arrayXml];
+                        NSArray *arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
+                        associativeEntity *item = [[associativeEntity alloc] initWithArray:arrayXml];
                         [dataArray1  addObject:item];
                     }
                     [self setFilter:dataArray1];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"complex_filter"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"complex_filter"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSArray* arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
-                        complexFilter* item = [[complexFilter alloc] initWithArray:arrayXml];
-                        [dataArray1  addObject:item];
+                        NSArray *arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
+                        complexFilter *item = [[complexFilter alloc] initWithArray:arrayXml];
+                        [dataArray1 addObject:item];
                     }
                     [self setComplex_filter:dataArray1];
                 }
@@ -51,20 +55,27 @@
     }
     return self;
 }
--(NSString*)toString:(BOOL)addNameWrap {
+
+
+- (NSString *)toString:(BOOL)addNameWrap
+{
     NSMutableString *nsString = [NSMutableString string];
     if (addNameWrap == YES)
         [nsString appendString:@"<filters>" ];
-    if (self.filter != nil) {
+    if (self.filter != nil)
+    {
         [nsString appendFormat:@"<filter>"];
-        for(associativeEntity *elm in self.filter){
+        for (associativeEntity *elm in self.filter)
+        {
             [nsString appendFormat:@"%@", [elm toString:YES]];
         }
         [nsString appendFormat:@"</filter>"];
     }
-    if (self.complex_filter != nil) {
+    if (self.complex_filter != nil)
+    {
         [nsString appendFormat:@"<complex_filter>"];
-        for(complexFilter *elm in self.complex_filter){
+        for (complexFilter *elm in self.complex_filter)
+        {
             [nsString appendFormat:@"%@", [elm toString:YES]];
         }
         [nsString appendFormat:@"</complex_filter>"];
@@ -73,21 +84,31 @@
         [nsString appendString:@"</filters>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
--(id)initWithCoder:(NSCoder *)decoder{
-    self = [super init];
-    if (self){
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init])
+    {
         self.filter = [decoder decodeObjectForKey:@"filter"];
         self.complex_filter = [decoder decodeObjectForKey:@"complex_filter"];
     }
     return self;
 }
--(void)encodeWithCoder:(NSCoder *)encoder{
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
     [encoder encodeObject:self.filter forKey:@"filter"];
     [encoder encodeObject:self.complex_filter forKey:@"complex_filter"];
 }
--(id)copyWithZone:(NSZone *)zone {
-    filters *finalCopy = [[[self class] allocWithZone: zone] init];
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    filters *finalCopy = [[[self class] allocWithZone:zone] init];
     
     NSMutableArray *cpy1 = [self.filter copy];
     finalCopy.filter = cpy1;

@@ -8,6 +8,7 @@
 #import "NSObject+Instrospection.h"
 #import <objc/runtime.h>
 
+
 @implementation NSObject (Instrospection)
 
 - (NSArray *)classProperties

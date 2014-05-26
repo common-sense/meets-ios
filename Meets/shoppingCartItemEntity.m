@@ -16,368 +16,454 @@
 
 @implementation shoppingCartItemEntity
 
--(id)initWithArray:(NSArray*)array {
-    self = [super init];
-    if (self) {
+- (id)initWithArray:(NSArray *)array
+{
+    if (self = [super init])
+    {
         @try {
             for (int i0 = 0; i0 < [array count]; i0++)
             {
-                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"item_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"item_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setItem_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"created_at"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"created_at"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setCreated_at:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"updated_at"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"updated_at"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setUpdated_at:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setProduct_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"store_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"store_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setStore_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"parent_item_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"parent_item_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setParent_item_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_virtual"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_virtual"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setIs_virtual:[nodeContentValue intValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_virtualSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_virtualSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setIs_virtualSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"sku"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"sku"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setSku:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"name"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"name"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setName:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"description"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"description"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setDescription:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"applied_rule_ids"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"applied_rule_ids"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setApplied_rule_ids:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"additional_data"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"additional_data"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setAdditional_data:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"free_shipping"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"free_shipping"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setFree_shipping:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_qty_decimal"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"is_qty_decimal"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setIs_qty_decimal:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"no_discount"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"no_discount"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setNo_discount:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weight"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weight"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeight:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weightSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weightSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeightSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qty"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qty"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setQty:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qtySpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qtySpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setQtySpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setPrice:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"priceSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"priceSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setPriceSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_price:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_priceSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_priceSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_priceSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"custom_price"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"custom_price"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setCustom_price:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"custom_priceSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"custom_priceSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setCustom_priceSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_percent"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_percent"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setDiscount_percent:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_percentSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_percentSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setDiscount_percentSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setDiscount_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"discount_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setDiscount_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_discount_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_discount_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_discount_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_discount_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_discount_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_discount_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_percent"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_percent"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_percent:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_percentSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_percentSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_percentSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_tax_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_tax_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_total:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_totalSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_totalSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_totalSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_row_total:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_totalSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_totalSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_row_totalSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_with_discount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_with_discount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_total_with_discount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_with_discountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_with_discountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_total_with_discountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_weight"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_weight"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_weight:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_weightSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_weightSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_weightSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_type"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_type"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setProduct_type:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_before_discount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_before_discount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_tax_before_discount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_before_discountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_tax_before_discountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_tax_before_discountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_before_discount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_before_discount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_before_discount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_before_discountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_before_discountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setTax_before_discountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"original_custom_price"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"original_custom_price"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setOriginal_custom_price:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"original_custom_priceSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"original_custom_priceSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setOriginal_custom_priceSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_cost"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_cost"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_cost:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_costSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_costSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_costSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price_incl_tax"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price_incl_tax"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setPrice_incl_tax:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price_incl_taxSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"price_incl_taxSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setPrice_incl_taxSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price_incl_tax"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price_incl_tax"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_price_incl_tax:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price_incl_taxSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_price_incl_taxSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_price_incl_taxSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_incl_tax"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_incl_tax"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_total_incl_tax:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_incl_taxSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"row_total_incl_taxSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setRow_total_incl_taxSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total_incl_tax"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total_incl_tax"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_row_total_incl_tax:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total_incl_taxSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_row_total_incl_taxSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_row_total_incl_taxSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setGift_message_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setGift_message:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message_available"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"gift_message_available"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setGift_message_available:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_applied:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_appliedSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_appliedSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_appliedSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_applied_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_applied_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_row_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_row_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_applied_row_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_row_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_applied_row_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_applied_row_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_applied_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_applied_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_row_amount"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_row_amount"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_applied_row_amount:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_row_amountSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_applied_row_amountSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_applied_row_amountSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_disposition"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_disposition"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_disposition:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_dispositionSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_dispositionSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_dispositionSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_row_disposition"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_row_disposition"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_row_disposition:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_row_dispositionSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"weee_tax_row_dispositionSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setWeee_tax_row_dispositionSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_disposition"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_disposition"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_disposition:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_dispositionSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_dispositionSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_dispositionSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_row_disposition"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_row_disposition"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_row_disposition:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_row_dispositionSpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"base_weee_tax_row_dispositionSpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setBase_weee_tax_row_dispositionSpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_class_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"tax_class_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setTax_class_id:nodeContentValue];
                 }
@@ -388,52 +474,69 @@
     }
     return self;
 }
--(NSString*)toString:(BOOL)addNameWrap {
+
+
+- (NSString *)toString:(BOOL)addNameWrap
+{
     NSMutableString *nsString = [NSMutableString string];
     if (addNameWrap == YES)
         [nsString appendString:@"<shoppingCartItemEntity>" ];
-    if (self.item_id != nil) {
+    if (self.item_id != nil)
+    {
         [nsString appendFormat:@"<item_id>%@</item_id>" , [self item_id]];
     }
-    if (self.created_at != nil) {
+    if (self.created_at != nil)
+    {
         [nsString appendFormat:@"<created_at>%@</created_at>" , [self created_at]];
     }
-    if (self.updated_at != nil) {
+    if (self.updated_at != nil)
+    {
         [nsString appendFormat:@"<updated_at>%@</updated_at>" , [self updated_at]];
     }
-    if (self.product_id != nil) {
+    if (self.product_id != nil)
+    {
         [nsString appendFormat:@"<product_id>%@</product_id>" , [self product_id]];
     }
-    if (self.store_id != nil) {
+    if (self.store_id != nil)
+    {
         [nsString appendFormat:@"<store_id>%@</store_id>" , [self store_id]];
     }
-    if (self.parent_item_id != nil) {
+    if (self.parent_item_id != nil)
+    {
         [nsString appendFormat:@"<parent_item_id>%@</parent_item_id>" , [self parent_item_id]];
     }
     [nsString appendFormat:@"<is_virtual>%d</is_virtual>" , [self is_virtual]];
     [nsString appendFormat:@"<is_virtualSpecified>%d</is_virtualSpecified>" , [self is_virtualSpecified]];
-    if (self.sku != nil) {
+    if (self.sku != nil)
+    {
         [nsString appendFormat:@"<sku>%@</sku>" , [self sku]];
     }
-    if (self.name != nil) {
+    if (self.name != nil)
+    {
         [nsString appendFormat:@"<name>%@</name>" , [self name]];
     }
-    if (self.description != nil) {
+    if (self.description != nil)
+    {
         [nsString appendFormat:@"<description>%@</description>" , [self description]];
     }
-    if (self.applied_rule_ids != nil) {
+    if (self.applied_rule_ids != nil)
+    {
         [nsString appendFormat:@"<applied_rule_ids>%@</applied_rule_ids>" , [self applied_rule_ids]];
     }
-    if (self.additional_data != nil) {
+    if (self.additional_data != nil)
+    {
         [nsString appendFormat:@"<additional_data>%@</additional_data>" , [self additional_data]];
     }
-    if (self.free_shipping != nil) {
+    if (self.free_shipping != nil)
+    {
         [nsString appendFormat:@"<free_shipping>%@</free_shipping>" , [self free_shipping]];
     }
-    if (self.is_qty_decimal != nil) {
+    if (self.is_qty_decimal != nil)
+    {
         [nsString appendFormat:@"<is_qty_decimal>%@</is_qty_decimal>" , [self is_qty_decimal]];
     }
-    if (self.no_discount != nil) {
+    if (self.no_discount != nil)
+    {
         [nsString appendFormat:@"<no_discount>%@</no_discount>" , [self no_discount]];
     }
     [nsString appendFormat:@"<weight>%lf</weight>" , [self weight]];
@@ -466,7 +569,8 @@
     [nsString appendFormat:@"<row_total_with_discountSpecified>%d</row_total_with_discountSpecified>" , [self row_total_with_discountSpecified]];
     [nsString appendFormat:@"<row_weight>%lf</row_weight>" , [self row_weight]];
     [nsString appendFormat:@"<row_weightSpecified>%d</row_weightSpecified>" , [self row_weightSpecified]];
-    if (self.product_type != nil) {
+    if (self.product_type != nil)
+    {
         [nsString appendFormat:@"<product_type>%@</product_type>" , [self product_type]];
     }
     [nsString appendFormat:@"<base_tax_before_discount>%lf</base_tax_before_discount>" , [self base_tax_before_discount]];
@@ -485,13 +589,16 @@
     [nsString appendFormat:@"<row_total_incl_taxSpecified>%d</row_total_incl_taxSpecified>" , [self row_total_incl_taxSpecified]];
     [nsString appendFormat:@"<base_row_total_incl_tax>%lf</base_row_total_incl_tax>" , [self base_row_total_incl_tax]];
     [nsString appendFormat:@"<base_row_total_incl_taxSpecified>%d</base_row_total_incl_taxSpecified>" , [self base_row_total_incl_taxSpecified]];
-    if (self.gift_message_id != nil) {
+    if (self.gift_message_id != nil)
+    {
         [nsString appendFormat:@"<gift_message_id>%@</gift_message_id>" , [self gift_message_id]];
     }
-    if (self.gift_message != nil) {
+    if (self.gift_message != nil)
+    {
         [nsString appendFormat:@"<gift_message>%@</gift_message>" , [self gift_message]];
     }
-    if (self.gift_message_available != nil) {
+    if (self.gift_message_available != nil)
+    {
         [nsString appendFormat:@"<gift_message_available>%@</gift_message_available>" , [self gift_message_available]];
     }
     [nsString appendFormat:@"<weee_tax_applied>%lf</weee_tax_applied>" , [self weee_tax_applied]];
@@ -512,17 +619,22 @@
     [nsString appendFormat:@"<base_weee_tax_dispositionSpecified>%d</base_weee_tax_dispositionSpecified>" , [self base_weee_tax_dispositionSpecified]];
     [nsString appendFormat:@"<base_weee_tax_row_disposition>%lf</base_weee_tax_row_disposition>" , [self base_weee_tax_row_disposition]];
     [nsString appendFormat:@"<base_weee_tax_row_dispositionSpecified>%d</base_weee_tax_row_dispositionSpecified>" , [self base_weee_tax_row_dispositionSpecified]];
-    if (self.tax_class_id != nil) {
+    if (self.tax_class_id != nil)
+    {
         [nsString appendFormat:@"<tax_class_id>%@</tax_class_id>" , [self tax_class_id]];
     }
     if (addNameWrap == YES)
         [nsString appendString:@"</shoppingCartItemEntity>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
--(id)initWithCoder:(NSCoder *)decoder{
-    self = [super init];
-    if (self){
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init])
+    {
         self.item_id = [decoder decodeObjectForKey:@"item_id"];
         self.created_at = [decoder decodeObjectForKey:@"created_at"];
         self.updated_at = [decoder decodeObjectForKey:@"updated_at"];
@@ -611,7 +723,10 @@
     }
     return self;
 }
--(void)encodeWithCoder:(NSCoder *)encoder{
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
     [encoder encodeObject:self.item_id forKey:@"item_id"];
     [encoder encodeObject:self.created_at forKey:@"created_at"];
     [encoder encodeObject:self.updated_at forKey:@"updated_at"];
@@ -698,8 +813,11 @@
     [encoder encodeInt32:self.base_weee_tax_row_dispositionSpecified forKey:@"base_weee_tax_row_dispositionSpecified"];
     [encoder encodeObject:self.tax_class_id forKey:@"tax_class_id"];
 }
--(id)copyWithZone:(NSZone *)zone {
-    shoppingCartItemEntity *finalCopy = [[[self class] allocWithZone: zone] init];
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    shoppingCartItemEntity *finalCopy = [[[self class] allocWithZone:zone] init];
     
     NSString *copy1 = [self.item_id copy];
     finalCopy.item_id = copy1;

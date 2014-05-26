@@ -8,6 +8,7 @@
 
 #import "SoapApiMethod.h"
 
+
 @interface MGCustomerAddressDelete : SoapApiMethod
 
 @end

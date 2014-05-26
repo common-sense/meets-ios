@@ -8,12 +8,13 @@
 
 #import "MGProducts.h"
 
+
 @implementation MGProduct
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init])
+    {
         self.methodName = @"products";
     }
     return self;
@@ -38,7 +39,5 @@
     
     return productModel;
 }
-
-
 
 @end

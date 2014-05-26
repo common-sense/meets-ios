@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface Errors : NSObject
 
 + (NSException *)overrideException:(NSString *)methodName;

@@ -16,5 +16,4 @@
 
 - (void)fillWithModel:(id)modelObject;
 
-
 @end

@@ -8,12 +8,12 @@
 
 #import "MGCustomerAddressList.h"
 
+
 @implementation MGCustomerAddressList
 
 - (id)init
 {
-    self = [super init];
-    if (self)
+    if (self = [super init])
     {
         self.methodName = @"customerAddressList";
     }
@@ -26,17 +26,17 @@
     NSString *xmldata = [xml stringByReplacingOccurrencesOfString:@"xmlns=\"urn:Magento\"" withString:@""];
     NSData *data = [xmldata dataUsingEncoding:NSUTF8StringEncoding];
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
-    NSString * query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
+    NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
     NSMutableArray *result = nil;
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         result = [[NSMutableArray alloc] init];
-        NSArray* array35 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
+        NSArray *array35 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
         NSUInteger arraySize = [array35 count];
-        for (int j=0;j<arraySize;j++)
+        for (int j = 0; j < arraySize; j++)
         {
-            NSArray* array36 = [[array35 objectAtIndex:j] objectForKey:@"nodeChildArray"];
+            NSArray *array36 = [[array35 objectAtIndex:j] objectForKey:@"nodeChildArray"];
             customerAddressEntityItem *itemResult = [[customerAddressEntityItem alloc]initWithArray:array36];
             [result addObject:itemResult];
         }
@@ -69,10 +69,12 @@
         addressModel.company = addressItem.company;
         addressModel.fax = addressItem.fax;
         
-        if (addressItem.is_default_billing) {
+        if (addressItem.is_default_billing)
+        {
             [(MGMeetsAddress *)addressModel setMode:kAddressModeTypeBilling];
         }
-        else {
+        else
+        {
             [(MGMeetsAddress *)addressModel setMode:kAddressModeTypeShipping];
         }
         

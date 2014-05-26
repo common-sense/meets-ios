@@ -8,6 +8,7 @@
 
 #import "SoapApiMethod.h"
 
+
 @interface MGShoppingCartPaymentMethod : SoapApiMethod
 
 - (instancetype)initWithCartId:(NSNumber *)cartId;

@@ -8,6 +8,7 @@
 
 #import "MGShoppingCartProductList.h"
 
+
 @implementation MGShoppingCartProductList
 
 - (id)init
@@ -42,16 +43,16 @@
     NSString *xmldata = [xml stringByReplacingOccurrencesOfString:@"xmlns=\"urn:Magento\"" withString:@""];
     NSData *data = [xmldata dataUsingEncoding:NSUTF8StringEncoding];
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
-    NSString * query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
+    NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         NSMutableArray *result = [[NSMutableArray alloc]init];
-        NSArray* array48 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
+        NSArray *array48 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
         NSUInteger arraySize = [array48 count];
-        for (int j=0;j<arraySize;j++)
+        for (int j = 0; j < arraySize; j++)
         {
-            NSArray* array49 = [[array48 objectAtIndex:j] objectForKey:@"nodeChildArray"];
+            NSArray *array49 = [[array48 objectAtIndex:j] objectForKey:@"nodeChildArray"];
             catalogProductEntity *itemResult = [[catalogProductEntity alloc]initWithArray:array49];
             [result addObject:itemResult];
         }

@@ -8,6 +8,7 @@
 
 #import "MGShoppingCartCreate.h"
 
+
 @implementation MGShoppingCartCreate
 
 - (id)init
@@ -36,7 +37,7 @@
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
     NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
-    if([arrayOfWSData count] > 0 )
+    if ([arrayOfWSData count] > 0)
     {
         NSString *nodeContentValue = [[NSString alloc] initWithString:[[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeContent"]];
         return [NSNumber numberWithInt:[nodeContentValue intValue]];

@@ -12,6 +12,7 @@
 			buildConfigurationList = 1CA02AF118BE35CD00022BF6 /* Build configuration list for PBXAggregateTarget "UniversalLib" */;
 			buildPhases = (
 				1CD6773B18C66064008E5FE8 /* ShellScript */,
+				1C737EB319339F5A0096938D /* ShellScript */,
 			);
 			dependencies = (
 				1CD6773A18C65FD3008E5FE8 /* PBXTargetDependency */,
@@ -975,6 +976,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1C737EB319339F5A0096938D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -z ${SKIP_OBJCLEAN} || ${SKIP_OBJCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Objective-Clean.app\" ]]; then\n\"${LOCAL_APPS_DIR}\"/Objective-Clean.app/Contents/Resources/ObjClean.app/Contents/MacOS/ObjClean \"${SRCROOT}\"\nelse\necho \"warning: You have to install and set up Objective-Clean to use its features!\"\nfi\nfi";
 		};
 		1CD6773818C65DBC008E5FE8 /* Prepare Framework */ = {
 			isa = PBXShellScriptBuildPhase;

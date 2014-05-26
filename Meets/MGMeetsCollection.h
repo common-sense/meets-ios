@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MGMeetsCollection : MeetsCollection
 
 @end

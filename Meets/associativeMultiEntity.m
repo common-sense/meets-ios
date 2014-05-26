@@ -16,23 +16,27 @@
 
 @implementation associativeMultiEntity
 
--(id)initWithArray:(NSArray*)array {
+- (id)initWithArray:(NSArray *)array
+{
     self = [super init];
-    if (self) {
+    if (self)
+    {
         @try {
             for (int i0 = 0; i0 < [array count]; i0++)
             {
-                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"key"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"key"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setKey:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"value"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"value"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSString* item = [[NSString alloc] initWithString:[[array1 objectAtIndex:i1] objectForKey:@"nodeContent"]];
+                        NSString *item = [[NSString alloc] initWithString:[[array1 objectAtIndex:i1] objectForKey:@"nodeContent"]];
                         [dataArray1  addObject:item];
                     }
                     [self setValue:dataArray1];
@@ -44,16 +48,22 @@
     }
     return self;
 }
--(NSString*)toString:(BOOL)addNameWrap {
+
+
+- (NSString *)toString:(BOOL)addNameWrap
+{
     NSMutableString *nsString = [NSMutableString string];
     if (addNameWrap == YES)
         [nsString appendString:@"<associativeMultiEntity>" ];
-    if (self.key != nil) {
+    if (self.key != nil)
+    {
         [nsString appendFormat:@"<key>%@</key>" , [self key]];
     }
-    if (self.value != nil) {
+    if (self.value != nil)
+    {
         [nsString appendFormat:@"<value>"];
-        for(NSString *elm in self.value){
+        for (NSString *elm in self.value)
+        {
             [nsString appendFormat:@"<string>%@</string>", elm];
         }
         [nsString appendFormat:@"</value>"];
@@ -62,21 +72,32 @@
         [nsString appendString:@"</associativeMultiEntity>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
--(id)initWithCoder:(NSCoder *)decoder{
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
     self = [super init];
-    if (self){
+    if (self)
+    {
         self.key = [decoder decodeObjectForKey:@"key"];
         self.value = [decoder decodeObjectForKey:@"value"];
     }
     return self;
 }
--(void)encodeWithCoder:(NSCoder *)encoder{
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
     [encoder encodeObject:self.key forKey:@"key"];
     [encoder encodeObject:self.value forKey:@"value"];
 }
--(id)copyWithZone:(NSZone *)zone {
-    associativeMultiEntity *finalCopy = [[[self class] allocWithZone: zone] init];
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    associativeMultiEntity *finalCopy = [[[self class] allocWithZone:zone] init];
     
     NSString *copy1 = [self.key copy];
     finalCopy.key = copy1;

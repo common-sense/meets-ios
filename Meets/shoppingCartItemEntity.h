@@ -103,9 +103,10 @@
 @property BOOL base_weee_tax_row_dispositionSpecified;
 @property (nonatomic, copy) NSString *tax_class_id;
 
--(NSString*)toString:(BOOL)addNameWrap;
--(id)initWithArray:(NSArray*)array;
--(void)encodeWithCoder:(NSCoder *)encoder;
--(id)copyWithZone:(NSZone *)zone;
--(id)initWithCoder:(NSCoder *)decoder;
+- (NSString *)toString:(BOOL)addNameWrap;
+- (id)initWithArray:(NSArray *)array;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 @end

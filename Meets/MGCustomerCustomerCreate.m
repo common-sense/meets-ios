@@ -8,17 +8,18 @@
 
 #import "MGCustomerCustomerCreate.h"
 
+
 @implementation MGCustomerCustomerCreate
 
 - (id)init
 {
-    self = [super init];
-    if (self)
+    if (self = [super init])
     {
         self.methodName = @"customerCustomerCreate";
     }
     return self;
 }
+
 
 - (id)parseResponseFromXmlString:(NSString *)xml
 {
@@ -28,7 +29,7 @@
     NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
     NSNumber *result = nil;
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         NSString *nodeContentValue = [[NSString alloc] initWithString:[[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeContent"]];
         result = [NSNumber numberWithInt:[nodeContentValue intValue]];

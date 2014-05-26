@@ -9,6 +9,7 @@
 #import "MeetsSoapSessionManager.h"
 #import "AFXMLDictionaryResponseSerializer.h"
 
+
 @implementation MeetsSoapSessionManager
 
 static MeetsSoapSessionManager *shared = nil;
@@ -60,7 +61,5 @@ static MeetsSoapSessionManager *shared = nil;
     });
     return shared;
 }
-
-
 
 @end

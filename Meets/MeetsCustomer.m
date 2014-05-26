@@ -8,6 +8,7 @@
 
 #import "MeetsCustomer.h"
 
+
 @implementation MeetsCustomer
 
 - (void)fetchByEmail:(NSString *)email

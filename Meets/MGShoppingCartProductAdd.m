@@ -8,18 +8,19 @@
 
 #import "MGShoppingCartProductAdd.h"
 
+
 @interface MGShoppingCartProductAdd()
 
 @property (nonatomic, strong) NSNumber *cartId;
 
 @end
 
+
 @implementation MGShoppingCartProductAdd
 
 - (instancetype)initWithCartId:(NSNumber *)cartId
 {
-    self = [super init];
-    if (self)
+    if (self = [super init])
     {
         self.methodName = @"shoppingCartProductAdd";
         self.cartId = cartId;
@@ -56,7 +57,7 @@
     NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
     NSNumber *result = nil;
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         NSString *nodeContentValue = [[NSString alloc] initWithString:[[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeContent"]];
         result = [NSNumber numberWithBool:[nodeContentValue boolValue]];

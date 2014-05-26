@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MeetsCollection : MeetsGenericModel
 
 @property (nonatomic, strong) NSMutableArray *collection;

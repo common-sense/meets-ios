@@ -9,6 +9,7 @@
 #import "MGMeetsCustomer.h"
 #import "NSString+NSHash.h"
 
+
 @implementation MGMeetsCustomer
 
 - (instancetype)initWithId:(NSNumber *)customerId
@@ -27,7 +28,8 @@
 {
     MGCustomerCustomerInfo *infoMethod = [MGCustomerCustomerInfo new];
     [infoMethod runWithParams:@{@"customerId": self.objectId} filters:nil completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             [self fillWithModel:responseObject];
         }
         
@@ -53,7 +55,8 @@
     soapFilters.complex_filter = [NSMutableArray arrayWithObject:aComplexFilter];
     
     [customerListMethod runWithParams:nil filters:soapFilters completion:^(id responseObject, NSError *error) {
-        if (!error && [responseObject count] > 0) {
+        if (!error && [responseObject count] > 0)
+        {
             [self fillWithModel:responseObject[0]];
         }
 
@@ -65,7 +68,7 @@
 - (BOOL)checkPassword:(NSString *)password
 {
     NSRange saltPosition = [self.passwordHash rangeOfString:@":"];
-    NSString *saltNoise = [self.passwordHash substringFromIndex:saltPosition.location+1];
+    NSString *saltNoise = [self.passwordHash substringFromIndex:saltPosition.location + 1];
     NSString *typedPasswordHash = [[saltNoise stringByAppendingString:password] MD5];
     
     return ([typedPasswordHash isEqualToString:[self.passwordHash substringToIndex:saltPosition.location]]) ? YES : NO;
@@ -74,17 +77,22 @@
 
 - (void)saveWithCompletion:(MeetsCompletion)completion
 {
-    if (self.objectId) { // Update else create
+    if (self.objectId)
+    { // Update else create
         MGCustomerCustomerUpdate *updateMethod = [MGCustomerCustomerUpdate new];
-        [updateMethod runWithModels:@[self] completion:^(id responseObject, NSError *error) {
-            if (!error && ![responseObject boolValue]) {
+        [updateMethod runWithModels:@[self] completion:^(id responseObject, NSError *error)
+        {
+            if (!error && ![responseObject boolValue])
+            {
                 error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                             code:0
                                         userInfo:[NSDictionary dictionaryWithObject:@"Could not update the customer" forKey:NSLocalizedDescriptionKey]];
             }
             completion(error);
         }];
-    } else {
+    }
+    else
+    {
         MGCustomerCustomerCreate *createMethod = [MGCustomerCustomerCreate new];
         [createMethod runWithModels:@[self] completion:^(id responseObject, NSError *error) {
             if (!error)
@@ -111,15 +119,19 @@
 {
     MeetsAddress *addressToSend = [self addressWithId:address.objectId];
     
-    if (addressToSend) { // Update-else-create
+    if (addressToSend)
+    { // Update-else-create
         MGCustomerAddressUpdate *updateMethod = [MGCustomerAddressUpdate new];
         [updateMethod runWithModels:@[address] completion:^(id responseObject, NSError *error) {
-            if (!error) {
-                if ([responseObject boolValue]) {
+            if (!error)
+            {
+                if ([responseObject boolValue])
+                {
                     [addressToSend fillWithModel:address];
                     [self updateBillingsAndShippingsWithAddress:address];
                 }
-                else {
+                else
+                {
                     error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                                 code:0
                                             userInfo:[NSDictionary dictionaryWithObject:@"Could not update the address" forKey:NSLocalizedDescriptionKey]];
@@ -129,10 +141,12 @@
             completion(error);
         }];
     }
-    else {
+    else
+    {
         MGCustomerAddressCreate *createMethod = [[MGCustomerAddressCreate alloc] initWithCustomerId:self.objectId];
         [createMethod runWithModels:@[address] completion:^(id responseObject, NSError *error) {
-            if (!error) {
+            if (!error)
+            {
                 [self updateBillingsAndShippingsWithAddress:address];
                 address.objectId = @([responseObject integerValue]);
                 [self.addresses addObject:address];
@@ -148,11 +162,14 @@
 {
     MGCustomerAddressDelete *deleteMethod = [MGCustomerAddressDelete new];
     [deleteMethod runWithModels:@[addressId] completion:^(id responseObject, NSError *error) {
-        if (!error) {
-            if ([responseObject boolValue]) {
+        if (!error)
+        {
+            if ([responseObject boolValue])
+            {
                 [self.addresses removeObject:[self addressWithId:addressId]];
             }
-            else {
+            else
+            {
                 error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                             code:0
                                         userInfo:[NSDictionary dictionaryWithObject:@"Could not remove the address" forKey:NSLocalizedDescriptionKey]];
@@ -169,28 +186,32 @@
 - (void)updateBillingsAndShippingsWithAddress:(MeetsAddress *)address
 {
     // Update the default billing and shipping state in the other addresses
-    for (MeetsAddress *anAddress in self.addresses) {
-        if (address.isDefaultBilling.boolValue && anAddress.isDefaultBilling.boolValue && (![address.objectId isEqual:anAddress.objectId])) {
+    for (MeetsAddress *anAddress in self.addresses)
+    {
+        if (address.isDefaultBilling.boolValue && anAddress.isDefaultBilling.boolValue && (![address.objectId isEqual:anAddress.objectId]))
+        {
             anAddress.isDefaultBilling = @NO;
         }
         
-        if (address.isDefaultShipping.boolValue && anAddress.isDefaultShipping.boolValue && (![address.objectId isEqual:anAddress.objectId])) {
+        if (address.isDefaultShipping.boolValue && anAddress.isDefaultShipping.boolValue && (![address.objectId isEqual:anAddress.objectId]))
+        {
             anAddress.isDefaultShipping = @NO;
         }
     }
 }
+
 
 - (MeetsAddress *)addressWithId:(NSNumber *)addressId
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", addressId];
     NSArray *filteredArray = [self.addresses filteredArrayUsingPredicate:predicate];
     
-    if ([filteredArray count] > 0) {
+    if ([filteredArray count] > 0)
+    {
         return filteredArray[0];
     }
     
     return nil;
 }
-
 
 @end

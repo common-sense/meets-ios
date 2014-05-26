@@ -16,12 +16,13 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSString (NSHash_AdditionalHashingAlgorithms)
 
-- (NSString*) MD5;
+- (NSString *)MD5;
 
-- (NSString*) SHA1;
+- (NSString *)SHA1;
 
-- (NSString*) SHA256;
+- (NSString *)SHA256;
 
 @end

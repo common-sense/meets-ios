@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface MeetsGenericModel : NSObject
 
 #warning TODO include support:
@@ -24,6 +25,5 @@
 #pragma mark -
 
 - (void)fetchWithCompletion:(MeetsCompletion)completion;
-
 
 @end

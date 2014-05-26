@@ -8,6 +8,7 @@
 
 #import "MGMeetsProduct.h"
 
+
 @implementation MGMeetsProduct
 
 - (void)fetchWithCompletion:(MeetsCompletion)completion
@@ -48,7 +49,8 @@
 {
     MGCatalogProductInfo *infoMethod = [MGCatalogProductInfo new];
     [infoMethod runWithParams:@{@"product": self.sku, @"attributes": [NSArray arrayWithObject:@{@"additional_attributes": attributes}]} filters:nil completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             [self fillWithModel:responseObject];
             
             __block NSError *completionError = nil;
@@ -61,9 +63,12 @@
                 dispatch_group_enter(group);
 
                 id object = [[NSUserDefaults standardUserDefaults] valueForKey:[@"MeetsSDK:" stringByAppendingString:attributeKey]];
-                if (object) { // Try to retrieve options from cache (NSUserDefaults)
+                if (object)
+                { // Try to retrieve options from cache (NSUserDefaults)
                     dispatch_group_leave(group);
-                } else {
+                }
+                else
+                {
                     MGCatalogProductAttributeOptions *attributeOptionsMethod = [MGCatalogProductAttributeOptions new];
                     [attributeOptionsMethod runWithParams:@{@"attributeId": attributeKey} filters:nil completion:^(id responseObject, NSError *error) {
                         if (!error)
@@ -79,7 +84,8 @@
                             [[NSUserDefaults standardUserDefaults] setObject:attributesArray forKey:[@"MeetsSDK:" stringByAppendingString:attributeKey]];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                         }
-                        else {
+                        else
+                        {
                             completionError = error;
                         }
                         
@@ -90,16 +96,20 @@
             
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 // All requests finished
-                if (completionError) {
+                if (completionError)
+                {
                     self.additionalAttributes = nil;
                 }
-                else {
+                else
+                {
                     NSMutableDictionary *finalDictionary = [NSMutableDictionary dictionary];
                     
-                    for (NSString *aKey in self.additionalAttributes.allKeys) {
+                    for (NSString *aKey in self.additionalAttributes.allKeys)
+                    {
                         id value = [self valueForAdditionalAttributeDictionary:[self.additionalAttributes dictionaryWithValuesForKeys:@[aKey]]];
                         
-                        if (value) {
+                        if (value)
+                        {
                             [finalDictionary addEntriesFromDictionary:@{aKey: value}];
                         }
                     }
@@ -108,7 +118,8 @@
                 completion(completionError);
             });
         }
-        else {
+        else
+        {
             completion(error);
         }
     }];

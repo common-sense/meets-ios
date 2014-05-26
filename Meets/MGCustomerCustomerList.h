@@ -8,6 +8,7 @@
 
 #import "SoapApiMethod.h"
 
+
 @interface MGCustomerCustomerList : SoapApiMethod
 
 @end

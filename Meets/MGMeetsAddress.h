@@ -11,6 +11,7 @@
 static NSString *kAddressModeTypeBilling = @"billing";
 static NSString *kAddressModeTypeShipping = @"shipping";
 
+
 @interface MGMeetsAddress : MeetsAddress
 
 @property (nonatomic, strong) NSString *mode;

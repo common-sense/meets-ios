@@ -8,8 +8,8 @@
 
 #import "MeetsCollection.h"
 
-@implementation MeetsCollection
 
+@implementation MeetsCollection
 
 - (instancetype)initWithApiMethodClass:(Class)method
 {
@@ -41,9 +41,12 @@
 
 - (void)fillWithModel:(id)modelObject
 {
-    if (self.resetOnFetch.boolValue) {
+    if (self.resetOnFetch.boolValue)
+    {
         self.collection = [modelObject collection];
-    } else {
+    }
+    else
+    {
         [self.collection addObjectsFromArray:[modelObject collection]];
     }
 }
@@ -51,14 +54,16 @@
 
 - (void)insertModel:(MeetsModel *)model
 {
-    if (!self.collection) {
+    if (!self.collection)
+    {
         self.collection = [NSMutableArray array];
     }
     
     // Avoids duplicates:
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", model.objectId];
     NSArray *filteredArray = [self.collection filteredArrayUsingPredicate:predicate];
-    if (filteredArray.count == 0) {
+    if (filteredArray.count == 0)
+    {
         [self.collection addObject:model];
     }
 }
@@ -68,13 +73,13 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", modelId];
     NSArray *filteredArray = [self.collection filteredArrayUsingPredicate:predicate];
-    if (filteredArray.count > 0) {
+    if (filteredArray.count > 0)
+    {
         [self.collection removeObject:filteredArray[0]];
         return filteredArray[0];
     }
+    
     return nil;
 }
-
-
 
 @end

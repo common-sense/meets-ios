@@ -8,11 +8,13 @@
 
 #import "MGShoppingCartProductRemove.h"
 
+
 @interface MGShoppingCartProductRemove()
 
 @property (nonatomic, strong) NSNumber *cartId;
 
 @end
+
 
 @implementation MGShoppingCartProductRemove
 
@@ -56,7 +58,7 @@
     NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
     NSNumber *result = nil;
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         NSString *nodeContentValue = [[NSString alloc] initWithString:[[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeContent"]];
         result = [NSNumber numberWithBool:[nodeContentValue boolValue]];

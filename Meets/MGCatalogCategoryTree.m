@@ -9,12 +9,12 @@
 #import "MGCatalogCategoryTree.h"
 #import "catalogCategoryTree.h"
 
+
 @implementation MGCatalogCategoryTree
 
 - (id)init
 {
-    self = [super init];
-    if (self)
+    if (self = [super init])
     {
         self.methodName = @"catalogCategoryTree";
     }
@@ -27,12 +27,12 @@
     NSString *xmldata = [xml stringByReplacingOccurrencesOfString:@"xmlns=\"urn:Magento\"" withString:@""];
     NSData *data = [xmldata dataUsingEncoding:NSUTF8StringEncoding];
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
-    NSString * query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
+    NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
-    if([arrayOfWSData count] > 0 )
+    if ([arrayOfWSData count] > 0)
     {
-        NSArray* array38 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
-        catalogCategoryTree* result = [[catalogCategoryTree alloc] initWithArray:array38];
+        NSArray *array38 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
+        catalogCategoryTree *result = [[catalogCategoryTree alloc] initWithArray:array38];
         return result;
     }
     return nil;

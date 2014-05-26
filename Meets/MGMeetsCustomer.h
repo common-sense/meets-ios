@@ -11,6 +11,7 @@
 #define MGCustomerModeCustomer @"customer"
 #define MGCustomerModeGuest @"guest"
 
+
 @interface MGMeetsCustomer : MeetsCustomer
 
 @property (nonatomic, strong) NSString *type;

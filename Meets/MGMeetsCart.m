@@ -8,12 +8,13 @@
 
 #import "MGMeetsCart.h"
 
+
 @implementation MGMeetsCart
 
 - (id)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init])
+    {
         self.items = [NSMutableArray array];
     }
     return self;
@@ -22,8 +23,7 @@
 
 - (id)initWithId:(NSNumber *)theId
 {
-    self = [self init];
-    if (self)
+    if (self = [super init])
         self.objectId = theId;
     
     return self;
@@ -41,6 +41,7 @@
     }];
 }
 
+
 - (void)createWithCompletion:(MeetsCompletion)completion
 {
     MGShoppingCartCreate *createMethod = [MGShoppingCartCreate new];
@@ -52,12 +53,14 @@
     }];
 }
 
+
 - (void)attachCustomer:(MeetsCustomer *)customer
             completion:(MeetsCompletion)completion
 {
     MGShoppingCartCustomerSet *setMethod = [[MGShoppingCartCustomerSet alloc] initWithCartId:self.objectId];
     [setMethod runWithModels:@[customer] completion:^(id responseObject, NSError *error) {
-        if (!error && ![responseObject boolValue]) {
+        if (!error && ![responseObject boolValue])
+        {
             error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                         code:0
                                     userInfo:[NSDictionary dictionaryWithObject:@"Could not attach the customer to the cart" forKey:NSLocalizedDescriptionKey]];
@@ -97,16 +100,23 @@
     [addMethod runWithModels:itemsArray completion:^(id responseObject, NSError *error) {
         if (!error)
         {
-            if([responseObject boolValue]) {
-                for (MeetsCartItem *item in itemsArray) {
+            if ([responseObject boolValue])
+            {
+                for (MeetsCartItem *item in itemsArray)
+                {
                     MeetsCartItem *filteredItem = [self itemWithProductId:item.productId];
-                    if (filteredItem) {
+                    if (filteredItem)
+                    {
                         filteredItem.quantity = @(filteredItem.quantity.doubleValue + item.quantity.doubleValue);
-                    } else {
+                    }
+                    else
+                    {
                         [self.items addObject:item];
                     }
                 }
-            } else {
+            }
+            else
+            {
                 error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                             code:0
                                         userInfo:[NSDictionary dictionaryWithObject:@"Could not add item(s) to cart" forKey:NSLocalizedDescriptionKey]];
@@ -123,7 +133,8 @@
                   completion:(MeetsCompletion)completion
 {
     NSMutableArray *items = [NSMutableArray array];
-    for (int i = 0; i < products.count; i++) {
+    for (int i = 0; i < products.count; i++)
+    {
         MeetsCartItem *item = [[MeetsFactory shared] makeCartItemWithProduct:products[i]];
         item.quantity = quantities[i];
         [items addObject:item];
@@ -140,14 +151,16 @@
 {
     MeetsCartItem *filteredItem = [self itemWithProductId:productId];
     
-    if (filteredItem) {
+    if (filteredItem)
+    {
         [self removeItemsWithProductIds:@[filteredItem.productId]
                              quantities:@[filteredItem.quantity]
                              completion:^(NSError *error) {
                                  completion(error);
                              }];
     }
-    else {
+    else
+    {
         completion(nil);
     }
 }
@@ -159,14 +172,16 @@
 {
     MeetsCartItem *filteredItem = [self itemWithProductId:productId];
     
-    if (filteredItem) {
+    if (filteredItem)
+    {
         [self removeItemsWithProductIds:@[filteredItem.productId]
                              quantities:@[quantity]
                              completion:^(NSError *error) {
                                  completion(error);
                              }];
     }
-    else {
+    else
+    {
         completion(nil);
     }
 }
@@ -176,11 +191,15 @@
                        completion:(MeetsCompletion)completion
 {
     NSMutableArray *quantities = [NSMutableArray array];
-    for (NSNumber *productId in productIds) {
+    for (NSNumber *productId in productIds)
+    {
         MeetsCartItem *filteredItem = [self itemWithProductId:productId];
-        if (filteredItem) {
+        if (filteredItem)
+        {
             [quantities addObject:filteredItem.quantity];
-        } else {
+        }
+        else
+        {
             [quantities addObject:@(0)];
         }
     }
@@ -201,14 +220,19 @@
     NSMutableArray *itemsToRemove = [NSMutableArray array];
     NSArray *itemsCopy = [self.items copy];
     
-    for (int i = 0; i < productIds.count; i++) {
+    for (int i = 0; i < productIds.count; i++)
+    {
         MeetsCartItem *filteredItem = [self itemWithProductId:productIds[i]];
-        if (filteredItem) {
+        if (filteredItem)
+        {
             double remainingItems = filteredItem.quantity.doubleValue - [quantities[i] doubleValue];
-            if (remainingItems <= 0) {
+            if (remainingItems <= 0)
+            {
                 [itemsToRemove addObject:filteredItem];
                 [self.items removeObject:filteredItem];
-            } else {
+            }
+            else
+            {
                 MeetsCartItem *itemCopy = [filteredItem copy];
                 itemCopy.quantity = quantities[i];
                 [itemsToRemove addObject:itemCopy];
@@ -222,7 +246,8 @@
     [removeMethod runWithModels:itemsToRemove completion:^(id responseObject, NSError *error) {
         if (!error)
         {
-            if (![responseObject boolValue]) {
+            if (![responseObject boolValue])
+            {
                 self.items = (NSMutableArray *)itemsCopy; // undo
                 error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                             code:0
@@ -242,7 +267,8 @@
     
     MGShoppingCartCustomerAddresses *addressesMethod = [[MGShoppingCartCustomerAddresses alloc] initWithCartId:self.objectId];
     [addressesMethod runWithModels:@[billingAddress, shippingAddress] completion:^(id responseObject, NSError *error) {
-        if (!error && ![responseObject boolValue]) {
+        if (!error && ![responseObject boolValue])
+        {
                 error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                             code:0
                                         userInfo:[NSDictionary dictionaryWithObject:@"Could not attach addresses to cart" forKey:NSLocalizedDescriptionKey]];
@@ -257,7 +283,8 @@
 {
     MGShoppingCartShippingList *listMethod = [MGShoppingCartShippingList new];
     [listMethod runWithParams:@{@"quoteId": self.objectId} filters:nil completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             self.shippingMethods = responseObject;
         }
         completion(error);
@@ -269,7 +296,8 @@
 {
     MGShoppingCartShippingMethod *shippingCommand = [[MGShoppingCartShippingMethod alloc] initWithCartId:self.objectId];
     [shippingCommand runWithModels:@[shippingMethod] completion:^(id responseObject, NSError *error) {
-        if (!error && ![responseObject boolValue]) {
+        if (!error && ![responseObject boolValue])
+        {
             error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                         code:0
                                     userInfo:[NSDictionary dictionaryWithObject:@"Could not attach shipping method to cart" forKey:NSLocalizedDescriptionKey]];
@@ -291,7 +319,8 @@
 {
     MGShoppingCartPaymentMethod *paymentCommand = [[MGShoppingCartPaymentMethod alloc] initWithCartId:self.objectId];
     [paymentCommand runWithModels:@[paymentMethod] completion:^(id responseObject, NSError *error) {
-        if (!error && ![responseObject boolValue]) {
+        if (!error && ![responseObject boolValue])
+        {
             error = [NSError errorWithDomain:@"MagentoErrorDomain"
                                         code:0
                                     userInfo:[NSDictionary dictionaryWithObject:@"Could not attach payment method to cart" forKey:NSLocalizedDescriptionKey]];
@@ -321,7 +350,8 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"productId == %@", productId];
     NSArray *filteredArray = [self.items filteredArrayUsingPredicate:predicate];
     
-    if ([filteredArray count] > 0) {
+    if ([filteredArray count] > 0)
+    {
         return filteredArray[0];
     }
     

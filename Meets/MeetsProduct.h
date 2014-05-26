@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsProduct : MeetsModel
 
 @property (nonatomic, strong) NSString *type;

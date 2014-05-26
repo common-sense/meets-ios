@@ -8,6 +8,7 @@
 
 #import "AFHTTPSessionManager.h"
 
+
 @interface MeetsRestSessionManager : AFHTTPSessionManager
 
 @property (nonatomic, strong) NSString *storeId, *websiteId;

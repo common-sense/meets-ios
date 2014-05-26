@@ -16,70 +16,78 @@
 
 @implementation shoppingCartProductEntity
 
-- (id)initWithArray:(NSArray*)array
+- (id)initWithArray:(NSArray *)array
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init])
+    {
         @try {
             for (int i0 = 0; i0 < [array count]; i0++)
             {
-                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_id"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"product_id"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setProduct_id:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"sku"]==NSOrderedSame)){
-                    NSString* nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"sku"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc] initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     if (nodeContentValue !=nil)
                         [self setSku:nodeContentValue];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qty"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qty"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setQty:[nodeContentValue doubleValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qtySpecified"]==NSOrderedSame)){
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"qtySpecified"]==NSOrderedSame))
+                {
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setQtySpecified:[nodeContentValue boolValue]];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"options"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"options"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1 < [array1 count]; i1++)
                     {
-                        NSArray* arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
-                        associativeEntity* item = [[associativeEntity alloc] initWithArray:arrayXml];
+                        NSArray *arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
+                        associativeEntity *item = [[associativeEntity alloc] initWithArray:arrayXml];
                         [dataArray1  addObject:item];
                     }
                     [self setOptions:dataArray1];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"bundle_option"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"bundle_option"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSArray* arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
-                        associativeEntity* item = [[associativeEntity alloc] initWithArray:arrayXml];
+                        NSArray *arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
+                        associativeEntity *item = [[associativeEntity alloc] initWithArray:arrayXml];
                         [dataArray1  addObject:item];
                     }
                     [self setBundle_option:dataArray1];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"bundle_option_qty"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"bundle_option_qty"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSArray* arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
-                        associativeEntity* item = [[associativeEntity alloc] initWithArray:arrayXml];
+                        NSArray *arrayXml = [[array1  objectAtIndex:i1] objectForKey:@"nodeChildArray"];
+                        associativeEntity *item = [[associativeEntity alloc] initWithArray:arrayXml];
                         [dataArray1  addObject:item];
                     }
                     [self setBundle_option_qty:dataArray1];
                 }
-                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"links"]==NSOrderedSame)){
-                    NSArray* array1= [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
-                    NSMutableArray* dataArray1= [[NSMutableArray alloc]init];
-                    for (int i1=0; i1<[array1 count];i1++)
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeChildArray"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"links"]==NSOrderedSame))
+                {
+                    NSArray *array1 = [[array objectAtIndex:i0] objectForKey:@"nodeChildArray"];
+                    NSMutableArray *dataArray1 = [[NSMutableArray alloc]init];
+                    for (int i1 = 0; i1<[array1 count];i1++)
                     {
-                        NSString* item = [[NSString alloc] initWithString:[[array1 objectAtIndex:i1] objectForKey:@"nodeContent"]];
+                        NSString *item = [[NSString alloc] initWithString:[[array1 objectAtIndex:i1] objectForKey:@"nodeContent"]];
                         [dataArray1  addObject:item];
                     }
                     [self setLinks:dataArray1];
@@ -91,43 +99,55 @@
     }
     return self;
 }
+
+
 - (NSString *)toString:(BOOL)addNameWrap
 {
     NSMutableString *nsString = [NSMutableString string];
     if (addNameWrap == YES)
         [nsString appendString:@"<shoppingCartProductEntity>" ];
-    if (self.product_id != nil) {
+    if (self.product_id != nil)
+    {
         [nsString appendFormat:@"<product_id>%@</product_id>" , [self product_id]];
     }
-    if (self.sku != nil) {
+    if (self.sku != nil)
+    {
         [nsString appendFormat:@"<sku>%@</sku>" , [self sku]];
     }
     [nsString appendFormat:@"<qty>%lf</qty>" , [self qty]];
     [nsString appendFormat:@"<qtySpecified>%d</qtySpecified>" , [self qtySpecified]];
-    if (self.options != nil) {
+    if (self.options != nil)
+    {
         [nsString appendFormat:@"<options>"];
-        for(associativeEntity *elm in self.options){
+        for (associativeEntity *elm in self.options)
+        {
             [nsString appendFormat:@"%@", [elm toString:YES]];
         }
         [nsString appendFormat:@"</options>"];
     }
-    if (self.bundle_option != nil) {
+    if (self.bundle_option != nil)
+    {
         [nsString appendFormat:@"<bundle_option>"];
-        for(associativeEntity *elm in self.bundle_option){
+        for (associativeEntity *elm in self.bundle_option)
+        {
             [nsString appendFormat:@"%@", [elm toString:YES]];
         }
         [nsString appendFormat:@"</bundle_option>"];
     }
-    if (self.bundle_option_qty != nil) {
+    if (self.bundle_option_qty != nil)
+    {
         [nsString appendFormat:@"<bundle_option_qty>"];
-        for(associativeEntity *elm in self.bundle_option_qty){
+        for (associativeEntity *elm in self.bundle_option_qty)
+        {
             [nsString appendFormat:@"%@", [elm toString:YES]];
         }
         [nsString appendFormat:@"</bundle_option_qty>"];
     }
-    if (self.links != nil) {
+    if (self.links != nil)
+    {
         [nsString appendFormat:@"<links>"];
-        for(NSString *elm in self.links){
+        for (NSString *elm in self.links)
+        {
             [nsString appendFormat:@"<string>%@</string>", elm];
         }
         [nsString appendFormat:@"</links>"];
@@ -136,10 +156,14 @@
         [nsString appendString:@"</shoppingCartProductEntity>" ];
     return nsString;
 }
+
+
 #pragma mark - NSCoding
--(id)initWithCoder:(NSCoder *)decoder{
-    self = [super init];
-    if (self){
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init])
+    {
         self.product_id = [decoder decodeObjectForKey:@"product_id"];
         self.sku = [decoder decodeObjectForKey:@"sku"];
         self.qty = [decoder decodeInt32ForKey:@"qty"];
@@ -151,7 +175,10 @@
     }
     return self;
 }
--(void)encodeWithCoder:(NSCoder *)encoder{
+
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
     [encoder encodeObject:self.product_id forKey:@"product_id"];
     [encoder encodeObject:self.sku forKey:@"sku"];
     [encoder encodeInt32:self.qty forKey:@"qty"];
@@ -161,8 +188,11 @@
     [encoder encodeObject:self.bundle_option_qty forKey:@"bundle_option_qty"];
     [encoder encodeObject:self.links forKey:@"links"];
 }
--(id)copyWithZone:(NSZone *)zone {
-    shoppingCartProductEntity *finalCopy = [[[self class] allocWithZone: zone] init];
+
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    shoppingCartProductEntity *finalCopy = [[[self class] allocWithZone:zone] init];
     
     NSString *copy1 = [self.product_id copy];
     finalCopy.product_id = copy1;

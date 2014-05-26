@@ -8,6 +8,7 @@
 
 #import "MeetsStockItem.h"
 
+
 @interface MGMeetsStockItem : MeetsStockItem
 
 @end

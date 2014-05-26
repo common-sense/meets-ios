@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsStockItem : MeetsModel
 
 @property (nonatomic, strong) NSNumber *productId;

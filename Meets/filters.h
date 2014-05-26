@@ -22,9 +22,10 @@
 @property (nonatomic, strong) NSMutableArray *filter;
 @property (nonatomic, strong) NSMutableArray *complex_filter;
 
--(NSString*)toString:(BOOL)addNameWrap;
--(id)initWithArray:(NSArray*)array;
--(void)encodeWithCoder:(NSCoder *)encoder;
--(id)copyWithZone:(NSZone *)zone;
--(id)initWithCoder:(NSCoder *)decoder;
+- (NSString *)toString:(BOOL)addNameWrap;
+- (id)initWithArray:(NSArray *)array;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)copyWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 @end

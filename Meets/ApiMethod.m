@@ -8,6 +8,7 @@
 
 #import "ApiMethod.h"
 
+
 @implementation ApiMethod
 
 - (id)getModelFromResponse:(id)responseObject // Default implementation for basic types (NSNumbers...)
@@ -26,7 +27,5 @@
 {
     @throw [Errors overrideException:NSStringFromSelector(_cmd)];
 }
-
-
 
 @end

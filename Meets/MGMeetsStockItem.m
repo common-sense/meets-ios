@@ -8,6 +8,7 @@
 
 #import "MGMeetsStockItem.h"
 
+
 @implementation MGMeetsStockItem
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MeetsStockItemList.h"
 
+
 @implementation MeetsStockItemList
 
 - (instancetype)initWithArrayOfProductsIds:(NSArray *)arrayOfIds

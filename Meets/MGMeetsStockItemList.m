@@ -8,6 +8,7 @@
 
 #import "MGMeetsStockItemList.h"
 
+
 @implementation MGMeetsStockItemList
 
 - (instancetype)initWithArrayOfProductsIds:(NSArray *)arrayOfIds
@@ -24,7 +25,8 @@
 {
     MGCatalogInventoryStockItemList *stockMethod = [MGCatalogInventoryStockItemList new];
     [stockMethod runWithParams:@{@"products": self.arrayOfProductIds} filters:nil completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             NSArray *idsBackup = self.arrayOfProductIds;
             [self fillWithModel:responseObject]; // This nullifies self.arrayOfProductsIds
             self.arrayOfProductIds = idsBackup;

@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsCategory : MeetsModel
 
 @property (nonatomic, strong) NSNumber *parentId;

@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsAddress : MeetsModel <NSCoding>
 
 @property (nonatomic, strong) NSString *firstName;

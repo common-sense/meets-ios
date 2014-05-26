@@ -8,6 +8,7 @@
 
 #import "MeetsCartItem.h"
 
+
 @interface MGMeetsCartItem : MeetsCartItem
 
 - (id)initWithProduct:(MGMeetsProduct *)aProduct;

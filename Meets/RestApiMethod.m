@@ -8,6 +8,7 @@
 
 #import "RestApiMethod.h"
 
+
 @implementation RestApiMethod
 
 - (NSString *)requestFinalURLWithParams:(NSArray *)paramsArray filters:(NSDictionary *)filters
@@ -15,7 +16,8 @@
     MeetsRestSessionManager *manager = [MeetsRestSessionManager sharedManager];
     NSString *finalURL = [manager.baseURL.absoluteString stringByAppendingPathComponent:self.methodName];
     
-    for (id param in paramsArray) {
+    for (id param in paramsArray)
+    {
         finalURL = [finalURL stringByAppendingPathComponent:[param stringValue]];
     }
     

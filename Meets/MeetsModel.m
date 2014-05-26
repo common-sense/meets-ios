@@ -9,13 +9,13 @@
 #import "MeetsModel.h"
 #import "NSObject+Instrospection.h"
 
-@implementation MeetsModel
 
+@implementation MeetsModel
 
 - (instancetype)initWithId:(NSNumber *)theId
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init])
+    {
         self.objectId = theId;
     }
     return self;
@@ -30,7 +30,8 @@
 
 - (void)fillWithModel:(id)modelObject
 {
-    for (NSString *aProperty in [self classProperties]) {
+    for (NSString *aProperty in [self classProperties])
+    {
 //        if ([self respondsToSelector:NSSelectorFromString(aProperty)]) {
 //        }
         [self setValue:[modelObject valueForKey:aProperty] forKey:aProperty];

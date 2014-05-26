@@ -8,6 +8,7 @@
 
 #import "Meets.h"
 
+
 @implementation Meets
 
 static const NSString *kRestUrlSuffix = @"/api/rest/";
@@ -32,6 +33,7 @@ static const NSString *kSoapBaseUrlSuffix = @"/api/v2_soap/";
     [Meets initWithFactory:factory hostUrl:url soapApiUser:apiUser soapApiPassword:apiPassword storeId:storeId websiteId:websiteId basicAuthUser:nil basicAuthPassword:nil restBaseUrl:[Meets restBaseUrlWithHostUrl:url]];
 }
 
+
 + (void)initWithFactory:(MeetsFactory *)factory
                 hostUrl:(NSString *)url
             soapApiUser:(NSString *)apiUser
@@ -43,6 +45,7 @@ static const NSString *kSoapBaseUrlSuffix = @"/api/v2_soap/";
 {
     [Meets initWithFactory:factory hostUrl:url soapApiUser:apiUser soapApiPassword:apiPassword storeId:storeId websiteId:websiteId basicAuthUser:serverUser basicAuthPassword:serverPassword restBaseUrl:[Meets restBaseUrlWithHostUrl:url]];
 }
+
 
 + (void)initWithFactory:(MeetsFactory *)factory
                 hostUrl:(NSString *)url
@@ -74,6 +77,5 @@ static const NSString *kSoapBaseUrlSuffix = @"/api/v2_soap/";
 {
     return [NSString stringWithFormat:@"%@%@", hostUrl, kSoapBaseUrlSuffix];
 }
-
 
 @end

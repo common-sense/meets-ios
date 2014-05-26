@@ -8,6 +8,7 @@
 
 #import "Errors.h"
 
+
 @implementation Errors
 
 + (NSException *)overrideException:(NSString *)methodName

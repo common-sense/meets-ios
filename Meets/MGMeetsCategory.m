@@ -8,6 +8,7 @@
 
 #import "MGMeetsCategory.h"
 
+
 @implementation MGMeetsCategory
 
 - (void)fetchWithCompletion:(MeetsCompletion)completion
@@ -25,7 +26,8 @@
     [[MGCatalogCategoryTree new] runWithParams:@{@"parentId": self.parentId}
                                        filters:nil
                                     completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             [self fillWithModel:responseObject];
         }
         completion(error);
@@ -42,12 +44,12 @@
     [[MGCatalogCategoryLevel new] runWithParams:@{@"parentCategory": self.parentId}
                                         filters:nil
                                      completion:^(id responseObject, NSError *error) {
-        if (!error) {
+        if (!error)
+        {
             [self fillWithModel:responseObject];
         }
         completion(error);
     }];
 }
-
 
 @end

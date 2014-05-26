@@ -10,8 +10,8 @@
 
 - (instancetype)init
 {
-    self = [super init];
-    if (self) {
+    if (self = [super init])
+    {
         self.methodName = @"customerCustomerList";
     }
     
@@ -24,17 +24,17 @@
     NSString *xmldata = [xml stringByReplacingOccurrencesOfString:@"xmlns=\"urn:Magento\"" withString:@""];
     NSData *data = [xmldata dataUsingEncoding:NSUTF8StringEncoding];
     XPathQuery *xpathQuery = [[XPathQuery alloc] init];
-    NSString * query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
+    NSString *query = [NSString stringWithFormat:@"/soap:Envelope/soap:Body/*/*"];
     NSArray *arrayOfWSData = [xpathQuery newXMLXPathQueryResult:data andQuery:query];
     NSMutableArray *result = nil;
-    if([arrayOfWSData count] > 0)
+    if ([arrayOfWSData count] > 0)
     {
         result = [[NSMutableArray alloc] init];
-        NSArray* array30 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
+        NSArray *array30 = [[arrayOfWSData objectAtIndex:0] objectForKey:@"nodeChildArray"];
         NSUInteger arraySize = [array30 count];
-        for (int j=0;j<arraySize;j++)
+        for (int j = 0; j < arraySize; j++)
         {
-            NSArray* array31 = [[array30 objectAtIndex:j] objectForKey:@"nodeChildArray"];
+            NSArray *array31 = [[array30 objectAtIndex:j] objectForKey:@"nodeChildArray"];
             customerCustomerEntity *itemResult = [[customerCustomerEntity alloc] initWithArray:array31];
             [result addObject:itemResult];
         }
@@ -62,7 +62,5 @@
     }
     return items;
 }
-
-
 
 @end

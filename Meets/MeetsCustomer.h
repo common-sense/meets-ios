@@ -8,6 +8,7 @@
 
 #import "MeetsModel.h"
 
+
 @interface MeetsCustomer : MeetsModel <NSCoding>
 
 @property (nonatomic, strong) NSString *email;
