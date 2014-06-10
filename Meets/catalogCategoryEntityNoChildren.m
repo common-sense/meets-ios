@@ -55,6 +55,11 @@
                     NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
                     [self setLevel:[nodeContentValue intValue]];
                 }
+                else if ( ([[array objectAtIndex:i0] objectForKey:@"nodeContent"] !=nil) &&  ([[[array objectAtIndex:i0]objectForKey:@"nodeName"]caseInsensitiveCompare:@"include_in_menu"]==NSOrderedSame))
+                {
+                    NSString *nodeContentValue = [[NSString alloc]initWithString:[[array objectAtIndex:i0] objectForKey:@"nodeContent"]];
+                    [self setInclude_in_menu:[nodeContentValue intValue]];
+                }
             }
         }
         @catch(NSException *ex){

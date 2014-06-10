@@ -23,6 +23,7 @@
 @property int is_active;
 @property int position;
 @property int level;
+@property int include_in_menu;
 
 - (NSString *)toString:(BOOL)addNameWrap;
 - (id)initWithArray:(NSArray *)array;

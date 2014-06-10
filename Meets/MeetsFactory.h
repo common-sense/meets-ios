@@ -27,9 +27,9 @@
 
 #pragma mark - Categories
 
-- (MeetsCategory *)makeCategoryWithId:(NSNumber *)theId;
+- (id)makeCategoryWithId:(NSNumber *)theId;
 
-- (MeetsCategory *)makeCategoryWithDictionary:(NSDictionary *)theDictionary;
+- (id)makeCategoryWithDictionary:(NSDictionary *)theDictionary;
 
 
 #pragma mark - Carts

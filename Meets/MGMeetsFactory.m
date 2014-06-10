@@ -28,13 +28,13 @@
 
 #pragma mark - Categories
 
-- (MeetsCategory *)makeCategoryWithId:(NSNumber *)theId
+- (id)makeCategoryWithId:(NSNumber *)theId
 {
     return [[MGMeetsCategory alloc] initWithId:theId];
 }
 
 
-- (MeetsCategory *)makeCategoryWithDictionary:(NSDictionary *)theDictionary
+- (id)makeCategoryWithDictionary:(NSDictionary *)theDictionary
 {
     MGMeetsCategory *aCategory = [[MGMeetsCategory alloc] initWithId:[theDictionary valueForKey:@"objectId"]];
     aCategory.parentId = [theDictionary valueForKey:@"parentId"];

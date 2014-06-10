@@ -24,6 +24,7 @@
 @property int position;
 @property int level;
 @property (nonatomic, strong) NSMutableArray *children;
+@property int include_in_menu;
 
 - (NSString *)toString:(BOOL)addNameWrap;
 - (id)initWithArray:(NSArray *)array;
