@@ -533,6 +533,7 @@
 		1CF7AC9718BE171300B757EB /* NSString+NSHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSHash.m"; sourceTree = "<group>"; };
 		1CF8C82F18C0A81F00B1C0D5 /* Errors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		1CF8C83018C0A81F00B1C0D5 /* Errors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Errors.m; sourceTree = "<group>"; };
+		D6698715195C639A00BB9805 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB56A2E98E094F9BA894BD33 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -937,6 +938,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				it,
 			);
 			mainGroup = 1C4704B718BE00880085A921;
 			productRefGroup = 1C4704C118BE00880085A921 /* Products */;
@@ -1162,6 +1164,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1C4704DD18BE00890085A921 /* en */,
+				D6698715195C639A00BB9805 /* it */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
